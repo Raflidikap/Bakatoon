@@ -59,9 +59,12 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/submitBtn"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/lnview1"
+        android:layout_centerInParent="true"
+        android:background="#FF9900"
+        android:gravity="center"
         android:text="submit" />
 
 

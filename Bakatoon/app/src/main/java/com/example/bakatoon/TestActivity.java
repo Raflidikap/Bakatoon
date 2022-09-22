@@ -15,6 +15,7 @@ public class TestActivity extends AppCompatActivity {
     private Button backBtn;
     private RadioGroup radioGroup;
     private RadioButton radioButton;
+    private  Button buttonSubmit;
     private TextView textView, textView1;
 
     @Override
@@ -26,7 +27,7 @@ public class TestActivity extends AppCompatActivity {
         radioGroup = findViewById(R.id.btnGroup1);
         textView = findViewById(R.id.tv_test1);
         textView1 = findViewById(R.id.tv_test2);
-        Button buttonSubmit = findViewById(R.id.submitBtn);
+        buttonSubmit = findViewById(R.id.submitBtn);
 
         //set tombol back ke main activities
         backBtn.setOnClickListener(new View.OnClickListener() {
@@ -42,6 +43,7 @@ public class TestActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int radioId = radioGroup.getCheckedRadioButtonId();
                 radioButton = findViewById(radioId);
+                startActivity(new Intent(TestActivity.this, TestResultActivity.class));
             }
         });
     }
@@ -49,6 +51,5 @@ public class TestActivity extends AppCompatActivity {
     public void checkButton(View v){
         int radioId = radioGroup.getCheckedRadioButtonId();
         radioButton = findViewById(radioId);
-        Toast.makeText(this, "selected radio button: " + radioButton.getText(), Toast.LENGTH_SHORT).show();
     }
 }
