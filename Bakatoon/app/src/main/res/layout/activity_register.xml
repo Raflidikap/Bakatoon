@@ -7,7 +7,7 @@
     android:background="@color/purple_200"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context=".LoginActivity">
+    tools:context=".RegisterActivity">
 
     <TextView
         android:id="@+id/logo"
@@ -18,22 +18,38 @@
         android:textSize="45sp" />
 
     <TextView
-        android:id="@+id/tv_login"
+        android:id="@+id/tv_createaccount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/logo"
         android:layout_marginTop="50dp"
-        android:layout_marginBottom="20dp"
         android:gravity="center"
-        android:text="Login"
+        android:padding="10dp"
+        android:text="Create Account"
         android:textSize="30sp"
         android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_fullname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_createaccount"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/white"
+        android:hint="Full Name"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:drawablePadding="20dp"
+        android:padding="10dp"
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/et_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_login"
+        android:layout_below="@+id/et_fullname"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
@@ -43,7 +59,6 @@
         android:drawablePadding="20dp"
         android:hint="Email"
         android:padding="10dp"
-        android:textColor="@color/white"
         android:textColorHint="@color/white" />
 
     <EditText
@@ -61,48 +76,53 @@
         android:hint="Password"
         android:inputType="textPassword"
         android:padding="10dp"
-        android:textColor="@color/white"
         android:textColorHint="@color/white" />
 
-    <TextView
-        android:id="@+id/forgotpass"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/et_confpassword"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/et_password"
-        android:layout_alignParentRight="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:text="Forgot password?"
+        android:backgroundTint="@color/white"
+        android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
+        android:drawablePadding="20dp"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:textColorHint="@color/white" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/registerBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_confpassword"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="#FF9900"
+        android:text="Register"
         android:textColor="@color/white" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/loginBtn"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/forgotpass"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#FF9900"
-        android:text="Login" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/loginBtn">
+        android:layout_below="@+id/registerBtn"
+        android:gravity="center">
 
         <TextView
-            android:id="@+id/tv_createaccount"
+            android:id="@+id/tv_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:clickable="true"
             android:gravity="center"
-            android:text="Do not have account?"
+            android:text="Already have account?"
             android:textColor="@color/white" />
-
-    </LinearLayout>
+    </RelativeLayout>
 
 
 </RelativeLayout>
