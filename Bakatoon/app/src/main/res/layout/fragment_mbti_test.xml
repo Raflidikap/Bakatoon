@@ -12,16 +12,17 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="MBTI Test Page"
+        android:textColor="@color/white"
         android:textSize="32sp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/testBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv1"
         android:layout_centerInParent="true"
+        android:background="#FF9900"
         android:text="Lakukan Test"
-        android:padding="10dp"
         android:layout_margin="10dp"/>
 
 </RelativeLayout>

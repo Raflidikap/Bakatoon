@@ -4,21 +4,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#433BA9"
     tools:context=".TestActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/lnview1"
+        android:layout_width="match_parent"
+        android:layout_height="88dp"
+        android:layout_below="@+id/backBtn"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tv_test1"
+            android:layout_width="142dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/backBtn"
+            android:text="Tertutup dan Mandiri"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+
+        <RadioGroup
+            android:id="@+id/btnGroup1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tv_test1"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioBtn1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="checkButton" />
+
+            <RadioButton
+                android:id="@+id/radioBtn2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="checkButton" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tv_test2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-1dp"
+            android:layout_toRightOf="@+id/btnGroup1"
+            android:text="Sosial dan Ekspresif"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/submitBtn"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Test Here"
-        android:textSize="20sp" />
+        android:layout_below="@+id/lnview1"
+        android:text="submit" />
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/backBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="41dp"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="#433BA9"
         android:drawableLeft="@drawable/ic_baseline_arrow_back_24">
-
     </androidx.appcompat.widget.AppCompatButton>
+
+
 </RelativeLayout>

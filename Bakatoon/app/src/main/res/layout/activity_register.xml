@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple_200"
+    android:background="#433BA9"
     android:orientation="vertical"
     android:padding="20dp"
     tools:context=".RegisterActivity">
@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="BAKATOON"
+        android:textColor="@color/white"
         android:textSize="45sp" />
 
     <TextView
@@ -26,6 +27,7 @@
         android:gravity="center"
         android:padding="10dp"
         android:text="Create Account"
+        android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold" />
 
@@ -39,9 +41,9 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:backgroundTint="@color/white"
-        android:hint="Full Name"
         android:drawableLeft="@drawable/ic_baseline_person_24"
         android:drawablePadding="20dp"
+        android:hint="Full Name"
         android:padding="10dp"
         android:textColorHint="@color/white" />
 

@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="MBTI Page"
+        android:textColor="@color/white"
         android:textSize="32sp" />
 
 </RelativeLayout>

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@android:color/holo_purple">
+    android:background="#433BA9">
 
     <LinearLayout
         android:orientation="vertical"
@@ -20,7 +20,12 @@
                 android:layout_height="wrap_content"
                 app:tabMode="fixed"
                 app:tabIndicatorHeight="2dp"
-                app:tabGravity="fill"/>
+                app:tabGravity="fill"
+                app:tabTextColor="@color/white"
+                android:background="#FF9900"
+                app:tabIndicatorColor="@color/white"
+                android:foregroundTint="@color/white"
+                />
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.viewpager.widget.ViewPager
