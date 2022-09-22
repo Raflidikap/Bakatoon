@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_home"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="Home"
+            />
+        <item android:id="@+id/nav_termsCondition"
+            android:icon="@drawable/ic_baseline_assured_workload_24"
+            android:title="Terms And Condition"
+            />
+        <item android:id="@+id/nav_privacyPolicy"
+            android:icon="@drawable/ic_baseline_article_24"
+            android:title="Privacy Policy"
+            />
+
+    </group>
+    <item android:title="Apps">
+        <menu>
+            <item android:id="@+id/nav_version"
+                android:icon="@drawable/ic_baseline_priority_high_24"
+                android:title="Version"
+                />
+            <item android:id="@+id/logoutBtn"
+                android:icon="@drawable/ic_baseline_login_24"
+                android:title="Logout"
+                />
+        </menu>
+    </item>
+</menu>
