@@ -18,7 +18,7 @@ public class TestActivity extends AppCompatActivity {
         backBtn = findViewById(R.id.backBtn);
 
 
-        //set tombol back ke main activities
+        //set tombol back ke main activity
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
