@@ -3,9 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MbtiTestFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/tv1"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="30dp"
+        android:foregroundGravity="center"
+        android:src="@drawable/mbti_test_img" />
+
     <TextView
         android:id="@+id/tv1"
         android:layout_width="wrap_content"
@@ -13,16 +25,32 @@
         android:layout_centerInParent="true"
         android:text="MBTI Test Page"
         android:textColor="@color/white"
-        android:textSize="32sp" />
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv1"
+        android:layout_centerVertical="true"
+        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
+        android:text="In this test you have to answer the questions asked honestly to find out what type of personality you have."
+        android:textColor="@color/white"
+        android:textSize="15sp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/testBtn"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv1"
+        android:layout_below="@+id/tv2"
         android:layout_centerInParent="true"
+        android:layout_margin="10dp"
         android:background="#FF9900"
-        android:text="Lakukan Test"
-        android:layout_margin="10dp"/>
+        android:text="Lakukan Test" />
 
 </RelativeLayout>

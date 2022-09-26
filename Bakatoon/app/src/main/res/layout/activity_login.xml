@@ -9,14 +9,12 @@
     android:padding="20dp"
     tools:context=".LoginActivity">
 
-    <TextView
+    <ImageView
+        android:contentDescription="logo"
         android:id="@+id/logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="BAKATOON"
-        android:textColor="@color/white"
-        android:textSize="45sp" />
+        android:src="@drawable/ic_bakatoon"/>
 
     <TextView
         android:id="@+id/tv_login"

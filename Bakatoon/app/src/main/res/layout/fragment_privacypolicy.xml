@@ -2,14 +2,50 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#433BA9">
+    android:background="#433BA9"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:drawableTop="@drawable/ic_bakatoon"
+        android:drawablePadding="50dp"
+        android:padding="10dp"
+        android:text="Privacy and Policy"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:padding="10dp"
+        android:text="Bakatoon Team built the Bakatoon app as a Free app. This SERVICE is provided by Bakatoon Team at no cost and is intended for use as is.
+
+This page is used to inform visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use our Service.
+ If you choose to use our Service, then you agree to the collection and use of information in relation to this policy. The Personal Information that we collect is used for providing and improving the Service. "
+        android:textColor="@color/white" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Privacy Policy"
-        android:textColor="@color/white"
-        android:textSize="30sp"/>
+        android:layout_below="@+id/tv2"
+        android:layout_marginTop="48dp"
+        android:drawableBottom="@drawable/group_12"
+        android:drawablePadding="30dp"
+        android:padding="10dp"
+        android:text="Warm greetings from mimin.."
+        android:textColor="@color/white" />
 
 </RelativeLayout>

@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private TextView toLogin;
+    private TextView toLogin, registerBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,12 +18,21 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         toLogin = findViewById(R.id.tv_login);
+        registerBtn = findViewById(R.id.registerBtn);
 
         toLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        registerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent2 = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(intent2);
             }
         });
     }
