@@ -73,8 +73,7 @@
         android:layout_width="41dp"
         android:layout_height="wrap_content"
         android:background="#433BA9"
-        android:drawableLeft="@drawable/ic_baseline_arrow_back_24">
-    </androidx.appcompat.widget.AppCompatButton>
+        android:drawableLeft="@drawable/ic_baseline_arrow_back_24"></androidx.appcompat.widget.AppCompatButton>
 
 
 </RelativeLayout>

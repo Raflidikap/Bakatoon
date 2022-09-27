@@ -10,11 +10,11 @@
     tools:context=".LoginActivity">
 
     <ImageView
-        android:contentDescription="logo"
         android:id="@+id/logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_bakatoon"/>
+        android:contentDescription="logo"
+        android:src="@drawable/ic_bakatoon" />
 
     <TextView
         android:id="@+id/tv_login"
@@ -90,17 +90,32 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/loginBtn">
+        android:layout_below="@+id/loginBtn"
+        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/tv_createaccount"
-            android:layout_width="match_parent"
+
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:clickable="true"
             android:gravity="center"
             android:text="Do not have account?"
             android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/tv_createaccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="create"
+            android:textColor="#FF9900" />
+
 
     </LinearLayout>
 

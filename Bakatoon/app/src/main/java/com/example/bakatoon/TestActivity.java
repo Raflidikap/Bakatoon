@@ -33,8 +33,7 @@ public class TestActivity extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(TestActivity.this, MainActivity.class);
-                startActivity(intent);
+                onBackPressed();
             }
         });
 
