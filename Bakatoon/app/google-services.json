@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "627704102463",
+    "project_id": "bakatoon-c70c0",
+    "storage_bucket": "bakatoon-c70c0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:627704102463:android:e767f515a3d97a8fcbc28a",
+        "android_client_info": {
+          "package_name": "com.example.bakatoon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "627704102463-re9vkuvkk5bhdu0orkoqjupgqc3c21gg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxpoQJ4S4k_psFQaGJ8-HNVUTy2s0udZ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "627704102463-re9vkuvkk5bhdu0orkoqjupgqc3c21gg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
