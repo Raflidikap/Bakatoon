@@ -14,11 +14,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -26,12 +29,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     TabLayout tabLayout;
     ViewPager viewPager;
     FirebaseAuth mAuth;
+    DatabaseReference mDatabase;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -43,6 +49,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //profile nav head
         View headView = navigationView.getHeaderView(0);
         ImageFilterView imgProfile = headView.findViewById(R.id.image_view);
+        TextView profName = headView.findViewById(R.id.profName);
+        TextView profEmail = headView.findViewById(R.id.profEmail);
+
+        profName.setText(GlobalVar.currentUser.getName());
+        profEmail.setText(GlobalVar.currentUser.getEmail());
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);

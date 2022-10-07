@@ -93,7 +93,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                         HashMap<String, Object> hashMap = new HashMap<>();
                         hashMap.put("id", userid);
-                        hashMap.put("nama", strName);
+                        hashMap.put("name", strName);
                         hashMap.put("email", strEmail);
                         hashMap.put("mbti", "");
 

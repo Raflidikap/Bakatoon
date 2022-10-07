@@ -15,12 +15,14 @@
         android:paddingTop="10dp" />
 
     <TextView
+        android:id="@+id/profName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sisca Kohl"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
+        android:id="@+id/profEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="sisckhl@outlook.com" />
