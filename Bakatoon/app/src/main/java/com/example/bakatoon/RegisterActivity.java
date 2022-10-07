@@ -15,12 +15,18 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 public class RegisterActivity extends AppCompatActivity {
 
     private TextView toLogin, registerBtn;
     private EditText et_fullname, et_email, et_password, et_confpassword;
     FirebaseAuth mAuth;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,45 +52,63 @@ public class RegisterActivity extends AppCompatActivity {
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createUser();
+                String strName = et_fullname.getText().toString();
+                String strEmail = et_email.getText().toString();
+                String strPass = et_password.getText().toString();
+                String strConPass = et_confpassword.getText().toString();
+
+                if(strName.isEmpty()){
+                    et_fullname.setError("Name cannot empty");
+                    et_fullname.requestFocus();
+                }else if (strEmail.isEmpty()){
+                    et_email.setError("Email cannot empty");
+                    et_email.requestFocus();
+                }else if (strPass.isEmpty()){
+                    et_password.setError("Password cannot empty");
+                    et_password.requestFocus();
+                }else if (strConPass.isEmpty()){
+                    et_confpassword.setError("Confirmation password cannot empty");
+                    et_confpassword.requestFocus();
+                }else if(!strPass.equals(strConPass)){
+                    et_confpassword.setError("Password doesn't matches");
+                    et_confpassword.requestFocus();
+                }else {
+                    createUser(strName, strEmail, strPass);
+                }
             }
         });
     }
 
-    private void createUser(){
-        String strName = et_fullname.getText().toString();
-        String strEmail = et_email.getText().toString();
-        String strPass = et_password.getText().toString();
-        String strConPass = et_confpassword.getText().toString();
+    private void createUser(String strName, String strEmail, String strPass){
 
-        if(strName.isEmpty()){
-            et_fullname.setError("Name cannot empty");
-            et_fullname.requestFocus();
-        }else if (strEmail.isEmpty()){
-            et_email.setError("Email cannot empty");
-            et_email.requestFocus();
-        }else if (strPass.isEmpty()){
-            et_password.setError("Password cannot empty");
-            et_password.requestFocus();
-        }else if (strConPass.isEmpty()){
-            et_confpassword.setError("Confirmation password cannot empty");
-            et_confpassword.requestFocus();
-        }else if(!strPass.equals(strConPass)){
-            Toast.makeText(this, "Password doesn't matched", Toast.LENGTH_SHORT).show();
-        }else {
             mAuth.createUserWithEmailAndPassword(strEmail, strPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
                         Toast.makeText(RegisterActivity.this, "User created successfully", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                        startActivity(intent);
-                        finish();
+                        FirebaseUser firebaseUser = mAuth.getCurrentUser();
+                        String userid = firebaseUser.getUid();
+
+                        reference = FirebaseDatabase.getInstance().getReference().child("Users").child(userid);
+
+                        HashMap<String, Object> hashMap = new HashMap<>();
+                        hashMap.put("id", userid);
+                        hashMap.put("nama", strName);
+                        hashMap.put("email", strEmail);
+                        hashMap.put("mbti", "");
+
+                        reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
+                            }
+                        });
                     } else {
                         Toast.makeText(RegisterActivity.this, "Error " + task.getException(), Toast.LENGTH_SHORT).show();
                     }
                 }
             });
         }
-    }
 }
