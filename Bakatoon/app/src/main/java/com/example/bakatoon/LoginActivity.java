@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginBtn;
     private TextView toRegister;
     private EditText et_email, et_password;
+    private RelativeLayout loginLayout;
     FirebaseAuth mAuth;
     DatabaseReference reference;
     @Override
@@ -35,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        loginLayout = findViewById(R.id.loginLayout);
         loginBtn = findViewById(R.id.loginBtn);
         toRegister= findViewById(R.id.tv_createaccount);
         et_email = findViewById(R.id.et_email);
@@ -59,8 +62,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void loginUser(){
-        String strEmail = et_email.getText().toString();
-        String strPass = et_password.getText().toString();
+        String strEmail = et_email.getText().toString().trim();
+        String strPass = et_password.getText().toString().trim();
 
         if(strEmail.isEmpty()){
             et_email.setError("Email cannot empty");
@@ -81,6 +84,7 @@ public class LoginActivity extends AppCompatActivity {
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 GlobalVar.currentUser = snapshot.getValue(User.class);
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+
                                 startActivity(intent);
                                 finish();
                             }
@@ -118,12 +122,14 @@ public class LoginActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
         if(currentUser != null){
+            loginLayout.setVisibility(View.GONE);
             reference = FirebaseDatabase.getInstance().getReference().child("Users").child(mAuth.getCurrentUser().getUid());
             reference.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     GlobalVar.currentUser = snapshot.getValue(User.class);
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+
                     startActivity(intent);
                     finish();
                 }
@@ -133,8 +139,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 }
             });
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-            finish();
+
         }else{
             mAuth.signOut();
         }

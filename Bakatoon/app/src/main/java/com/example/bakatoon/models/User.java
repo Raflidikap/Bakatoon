@@ -5,6 +5,7 @@ public class User {
     private String name;
     private String email;
     private String mbti;
+    private String imageprofileUrl;
 
     public User(String id, String name, String email, String mbti) {
         this.id = id;
@@ -47,5 +48,13 @@ public class User {
 
     public void setMbti(String mbti) {
         this.mbti = mbti;
+    }
+
+    public String getImageprofileUrl() {
+        return imageprofileUrl;
+    }
+
+    public void setImageprofileUrl(String imageprofileUrl) {
+        this.imageprofileUrl = imageprofileUrl;
     }
 }
