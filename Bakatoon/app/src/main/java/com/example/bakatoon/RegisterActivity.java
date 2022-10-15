@@ -52,10 +52,10 @@ public class RegisterActivity extends AppCompatActivity {
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String strName = et_fullname.getText().toString().trim();
-                String strEmail = et_email.getText().toString().trim();
-                String strPass = et_password.getText().toString().trim();
-                String strConPass = et_confpassword.getText().toString().trim();
+                String strName = et_fullname.getText().toString();
+                String strEmail = et_email.getText().toString();
+                String strPass = et_password.getText().toString();
+                String strConPass = et_confpassword.getText().toString();
 
                 if(strName.isEmpty()){
                     et_fullname.setError("Name cannot empty");
@@ -97,7 +97,6 @@ public class RegisterActivity extends AppCompatActivity {
                         hashMap.put("name", strName);
                         hashMap.put("email", strEmail);
                         hashMap.put("mbti", "");
-                        hashMap.put("imageprofileUrl", "https://firebasestorage.googleapis.com/v0/b/bakatoon-c70c0.appspot.com/o/defaultProfileImg.png?alt=media&token=966663b0-f6ab-4123-8261-57b46edc41b9");
 
                         reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
