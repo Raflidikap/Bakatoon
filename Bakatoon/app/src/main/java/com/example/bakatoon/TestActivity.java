@@ -8,16 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
+
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.example.bakatoon.models.PersonalityTest;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.ArrayList;
-import java.util.Locale;
+
 import java.util.Random;
 
 public class TestActivity extends AppCompatActivity {
@@ -96,8 +95,8 @@ public class TestActivity extends AppCompatActivity {
         bottomSheetDialog.show();
     }
     private void setDataToView(int currentPos){
-        questionNumberTv.setText("Questions Attempted : " +questionAttempted+"/4");
-        if (questionAttempted == 4){
+        questionNumberTv.setText("Questions Attempted : " +questionAttempted+"/20");
+        if (questionAttempted == 10){
             showBottomSheet();
         }else {
             questionTv.setText(quizModelArrayList.get(currentPos).getQuestion());
@@ -108,8 +107,27 @@ public class TestActivity extends AppCompatActivity {
     }
     public void getQuestion(ArrayList<PersonalityTest> quizModelArrayList){
         quizModelArrayList.add(new PersonalityTest("extroversionVsIntroversionTest", "expend energy, enjoy groups", "conserve energy, enjoy one-on-one", "expend energy, enjoy groups"));
+        quizModelArrayList.add(new PersonalityTest("extroversionVsIntroversionTest", "more outgoing, think out loud", "more reserved, think to yourself", "more outgoing, think out loud"));
+        quizModelArrayList.add(new PersonalityTest("extroversionVsIntroversionTest", "seek many tasks, public activities, interaction with others", "seek private, solitary activities with quiet to concentrate", "seek many tasks, public activities, interaction with others"));
+        quizModelArrayList.add(new PersonalityTest("extroversionVsIntroversionTest", "external, communicative, express yourself", "internal, reticent, keep to yourself", "external, communicative, express yourself"));
+        quizModelArrayList.add(new PersonalityTest("extroversionVsIntroversionTest", "active, initiate", "reflective, deliberate", "active, initiate"));
+
         quizModelArrayList.add(new PersonalityTest("sensingVsIntuitionTest", "practical, realistic, experiential", "imaginative, innovative, theoretical", "practical, realistic, experiential"));
+        quizModelArrayList.add(new PersonalityTest("sensingVsIntuitionTest", "interpret literally", "look for meaning and possibilities", "interpret literally"));
+        quizModelArrayList.add(new PersonalityTest("sensingVsIntuitionTest", "standard, usual, conventional", "different, novel, unique", "standard, usual, conventional"));
+        quizModelArrayList.add(new PersonalityTest("sensingVsIntuitionTest", "focus on here-and-now", "look to the future, global perspective", "focus on here-and-now"));
+        quizModelArrayList.add(new PersonalityTest("sensingVsIntuitionTest", "facts, things", "ideas, dreams, philosophical", "facts, things"));
+
         quizModelArrayList.add(new PersonalityTest("thinkingVsFeelingTest", "firm, tend to criticize, hold the line", "gentle, tend to appreciate, conciliate", "firm, tend to criticize, hold the line"));
+        quizModelArrayList.add(new PersonalityTest("thinkingVsFeelingTest", "logical, thinking, questioning", "empathetic, feeling, accommodating", "logical, thinking, questioning"));
+        quizModelArrayList.add(new PersonalityTest("thinkingVsFeelingTest", "candid, straight forward, frank", "tactful, kind, encouraging", "candid, straight forward, frank"));
+        quizModelArrayList.add(new PersonalityTest("thinkingVsFeelingTest", "tough-minded, just", "tender-hearted, merciful", "tough-minded, just"));
+        quizModelArrayList.add(new PersonalityTest("thinkingVsFeelingTest", "matter of fact, issue-oriented", "sensitive, people-oriented, compassionate", "matter of fact, issue-oriented"));
+
+        quizModelArrayList.add(new PersonalityTest("judgingVsPerceivingTest", "control, govern", "latitude, freedom", "control, govern"));
+        quizModelArrayList.add(new PersonalityTest("judgingVsPerceivingTest", "organized, orderly", "flexible, adaptable", "organized, orderly"));
+        quizModelArrayList.add(new PersonalityTest("judgingVsPerceivingTest", "plan, schedule", "unplanned, spontaneous", "plan, schedule"));
+        quizModelArrayList.add(new PersonalityTest("judgingVsPerceivingTest", "regulated, structured", "easygoing, live and let live", "regulated, structured"));
         quizModelArrayList.add(new PersonalityTest("judgingVsPerceivingTest", "control, govern", "latitude, freedom", "control, govern"));
     }
 
