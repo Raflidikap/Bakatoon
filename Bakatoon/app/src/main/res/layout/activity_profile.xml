@@ -23,11 +23,11 @@
 
     </LinearLayout>
 
-    <androidx.constraintlayout.utils.widget.ImageFilterView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profilePic"
-        android:layout_below="@+id/linearlayout"
         android:layout_width="120dp"
         android:layout_height="120dp"
+        android:layout_below="@+id/linearlayout"
         android:layout_centerHorizontal="true"
 
         android:layout_marginBottom="30dp"

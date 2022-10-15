@@ -5,16 +5,26 @@ public class User {
     private String name;
     private String email;
     private String mbti;
+    private String imageprofileUrl;
 
-    public User(String id, String name, String email, String mbti) {
+    public User(String id, String name, String email, String mbti, String imageprofileUrl) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.mbti = mbti;
+        this.imageprofileUrl = imageprofileUrl;
     }
 
     public User(){
 
+    }
+
+    public String getImageprofileUrl() {
+        return imageprofileUrl;
+    }
+
+    public void setImageprofileUrl(String imageprofileUrl) {
+        this.imageprofileUrl = imageprofileUrl;
     }
 
     public String getId() {

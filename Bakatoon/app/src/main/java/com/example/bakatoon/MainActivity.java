@@ -14,9 +14,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
@@ -48,12 +50,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //profile nav head
         View headView = navigationView.getHeaderView(0);
-        ImageFilterView imgProfile = headView.findViewById(R.id.image_view);
+        ImageView imgProfile = headView.findViewById(R.id.image_view);
         TextView profName = headView.findViewById(R.id.profName);
         TextView profEmail = headView.findViewById(R.id.profEmail);
 
         profName.setText(GlobalVar.currentUser.getName());
         profEmail.setText(GlobalVar.currentUser.getEmail());
+        Glide.with(getApplicationContext()).load(GlobalVar.currentUser.getImageprofileUrl()).into(imgProfile);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
