@@ -60,7 +60,7 @@
             android:layout_height="match_parent"
             android:text="sisckhl@gmail.com"
             android:textColor="@color/white"
-            android:textSize="25sp" />
+            android:textSize="15sp" />
 
     </LinearLayout>
 

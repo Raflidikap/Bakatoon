@@ -85,6 +85,7 @@ public class RegisterActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
+                        //butuh progress dialog
                         Toast.makeText(RegisterActivity.this, "User created successfully", Toast.LENGTH_SHORT).show();
                         FirebaseUser firebaseUser = mAuth.getCurrentUser();
                         String userid = firebaseUser.getUid();
@@ -102,12 +103,11 @@ public class RegisterActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);
                             }
                         });
                     } else {
-                        Toast.makeText(RegisterActivity.this, "Error " + task.getException(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, "Error " + task.getException(), Toast.LENGTH_LONG).show();
                     }
                 }
             });

@@ -7,73 +7,68 @@
     android:background="#433BA9"
     tools:context=".TestActivity">
 
-    <LinearLayout
-        android:id="@+id/lnview1"
-        android:layout_width="match_parent"
-        android:layout_height="88dp"
-        android:layout_below="@+id/backBtn"
-        android:padding="10dp">
-
-        <TextView
-            android:id="@+id/tv_test1"
-            android:layout_width="142dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/backBtn"
-            android:text="Tertutup dan Mandiri"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
-
-
-        <RadioGroup
-            android:id="@+id/btnGroup1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/tv_test1"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/radioBtn1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="checkButton" />
-
-            <RadioButton
-                android:id="@+id/radioBtn2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="checkButton" />
-
-        </RadioGroup>
-
-        <TextView
-            android:id="@+id/tv_test2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="-1dp"
-            android:layout_toRightOf="@+id/btnGroup1"
-            android:text="Sosial dan Ekspresif"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
-
-    </LinearLayout>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/submitBtn"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/lnview1"
-        android:layout_centerInParent="true"
-        android:background="#FF9900"
-        android:gravity="center"
-        android:text="submit" />
-
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/backBtn"
         android:layout_width="41dp"
+        android:paddingLeft="10dp"
         android:layout_height="wrap_content"
         android:background="#433BA9"
-        android:drawableLeft="@drawable/ic_baseline_arrow_back_24"></androidx.appcompat.widget.AppCompatButton>
+        android:drawableLeft="@drawable/ic_baseline_arrow_back_24">
+
+    </androidx.appcompat.widget.AppCompatButton>
+
+    <TextView
+        android:id="@+id/idTVQuestionAttempted"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/backBtn"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:text="Number Of Question"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/idTVQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/idTVQuestionAttempted"
+        android:gravity="center"
+        android:text="Question"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="25sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idTVQuestion"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/idBtnOption1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:backgroundTint="#FF9900"
+            android:padding="4dp"
+            android:text="Option1"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/idBtnOption2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:backgroundTint="#FF9900"
+            android:padding="4dp"
+            android:text="Option2"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
 
 
 </RelativeLayout>
