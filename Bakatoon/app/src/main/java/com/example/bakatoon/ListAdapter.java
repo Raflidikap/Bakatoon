@@ -1,45 +1,66 @@
 package com.example.bakatoon;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 
-import java.util.ArrayList;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
-public class ListAdapter extends BaseAdapter {
-    Context context;
-    ArrayList<Integer> arrayList;
-    LayoutInflater layoutInflater;
+import com.bumptech.glide.Glide;
+import com.example.bakatoon.models.Personalities;
 
-    public ListAdapter(Context context, ArrayList<Integer> arrayList){
-        this.context =context;
-        this.arrayList = arrayList;
-        layoutInflater = LayoutInflater.from(context);
-    }
-    @Override
-    public int getCount() {
-        return arrayList.size();
-    }
+import java.util.List;
 
-    @Override
-    public Object getItem(int position) {
-        return position;
+public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>  {
+    public Context mContext;
+    public List<Personalities> mPersonalities;
+
+    public ListAdapter(Context mContext, List<Personalities> mPersonalities) {
+        this.mContext = mContext;
+        this.mPersonalities = mPersonalities;
     }
 
+    @NonNull
     @Override
-    public long getItemId(int position) {
-        return position;
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(mContext).inflate(R.layout.list_mbti, parent, false);
+
+        return new ListAdapter.ViewHolder(view);
     }
 
     @Override
-    public View getView(int position, View view, ViewGroup viewGroup) {
-        view = layoutInflater.inflate(R.layout.list_row, viewGroup, false);
-        ImageView imageView = view.findViewById(R.id.img);
-        imageView.setImageResource(arrayList.get(position));
-        return view;
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        Personalities personalities = mPersonalities.get(position);
+
+        Glide.with(mContext).load(personalities.getImg_url()).into(holder.img);
+
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(mContext, MbtiPersonalities.class);
+//                mContext.startActivity(intent);
+//            }
+//        });
+    }
+
+    @Override
+    public int getItemCount() {
+        return mPersonalities.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder{
+        public ImageView img;
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            img = itemView.findViewById(R.id.img);
+        }
     }
 }
