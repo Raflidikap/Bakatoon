@@ -42,13 +42,14 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>  {
 
         Glide.with(mContext).load(personalities.getImg_url()).into(holder.img);
 
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(mContext, "Halo", Toast.LENGTH_SHORT).show();
 //                Intent intent = new Intent(mContext, MbtiPersonalities.class);
 //                mContext.startActivity(intent);
-//            }
-//        });
+            }
+        });
     }
 
     @Override

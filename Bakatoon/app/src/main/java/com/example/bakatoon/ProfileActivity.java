@@ -15,7 +15,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class ProfileActivity extends AppCompatActivity {
-    private TextView logoutBtn, profileName, profileEmail;
+    private TextView logoutBtn, profileName, profileEmail, mbtiProfile;
     private Button backBtn;
     private ImageView profilePic;
     FirebaseAuth mAuth;
@@ -29,6 +29,7 @@ public class ProfileActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference("Users");
 
+        mbtiProfile = findViewById(R.id.mbtiProfile);
         logoutBtn = findViewById(R.id.logoutBtn);
         profileEmail = findViewById(R.id.profileEmail);
         profileName = findViewById(R.id.profileName);
@@ -38,6 +39,8 @@ public class ProfileActivity extends AppCompatActivity {
         profileEmail.setText(GlobalVar.currentUser.getEmail());
         profileName.setText(GlobalVar.currentUser.getName());
         Glide.with(getApplicationContext()).load(GlobalVar.currentUser.getImageprofileUrl()).into(profilePic);
+
+        mbtiProfile.setText(GlobalVar.currentUser.getMbti());
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

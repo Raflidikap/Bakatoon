@@ -87,13 +87,13 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/mbtiProfile"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:background="@drawable/customborder"
             android:gravity="center"
             android:padding="15dp"
-            android:text="ENFJ"
             android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="bold" />
