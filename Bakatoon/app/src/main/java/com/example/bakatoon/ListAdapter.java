@@ -16,12 +16,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.bakatoon.models.Personalities;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>  {
     public Context mContext;
     public List<Personalities> mPersonalities;
+    DatabaseReference mDatabase;
 
     public ListAdapter(Context mContext, List<Personalities> mPersonalities) {
         this.mContext = mContext;
@@ -45,9 +48,12 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>  {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(mContext, "Halo", Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(mContext, MbtiPersonalities.class);
-//                mContext.startActivity(intent);
+                SharedPreferences.Editor editor = mContext.getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit();
+                editor.putString("personalityId", personalities.getId());
+                editor.apply();
+                Intent intent = new Intent(mContext, MbtiPersonalities.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                mContext.startActivity(intent);
             }
         });
     }

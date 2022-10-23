@@ -26,7 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 public class LoginActivity extends AppCompatActivity {
 
     private Button loginBtn;
-    private TextView toRegister;
+    private TextView toRegister, forgotpass;
     private EditText et_email, et_password;
     FirebaseAuth mAuth;
     DatabaseReference reference;
@@ -35,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        forgotpass = findViewById(R.id.forgotpass);
         loginBtn = findViewById(R.id.loginBtn);
         toRegister= findViewById(R.id.tv_createaccount);
         et_email = findViewById(R.id.et_email);
@@ -54,6 +55,13 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
+            }
+        });
+        forgotpass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent inten = new Intent(LoginActivity.this, ForgotPassword.class);
+                startActivity(inten);
             }
         });
     }
