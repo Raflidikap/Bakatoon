@@ -10,8 +10,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.bakatoon.models.Personalities;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -29,10 +31,10 @@ import java.util.List;
 public class MbtiPersonalities extends AppCompatActivity {
     SharedPreferences prefs;
     String id;
-    TextView mbtiId, subMbtiId;
+    ImageView mbtiCircleImageView;
+    TextView mbtiId, subMbtiId, desc, strengthId, weaknessId, atworkId, topcareerId;
     Button backToInfoBtn;
 
-    String mbti, sub_mbti;
 
     DatabaseReference mDatabase;
 
@@ -42,8 +44,17 @@ public class MbtiPersonalities extends AppCompatActivity {
         setContentView(R.layout.activity_mbti_personalities);
 
         backToInfoBtn = findViewById(R.id.backToInfoBtn);
+        mbtiCircleImageView = findViewById(R.id.mbtiCircleImageView);
+        topcareerId = findViewById(R.id.topcareerId);
+        atworkId = findViewById(R.id.atworkId);
+        strengthId = findViewById(R.id.strengthId);
+        weaknessId = findViewById(R.id.weaknessId);
         mbtiId = findViewById(R.id.mbtiId);
         subMbtiId = findViewById(R.id.subMbtiId);
+        desc = findViewById(R.id.desc);
+
+
+
         prefs = getApplicationContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE);
         id = prefs.getString("personalityId", "");
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Personalities");
@@ -54,6 +65,25 @@ public class MbtiPersonalities extends AppCompatActivity {
                 for (DataSnapshot child:snapshot.getChildren()){
                     mbtiId.setText(String.valueOf(child.child("mbti").getValue()));
                     subMbtiId.setText(String.valueOf(child.child("sub_mbti").getValue()));
+                    if (child.hasChild("mbticircleimg_url")){
+                        Glide.with(getApplicationContext()).load(child.child("mbticircleimg_url").getValue().toString()).into(mbtiCircleImageView);
+                    }
+                    if (child.hasChild("desc")) {
+                        desc.setText(child.child("desc").getValue().toString().replace("\\n", "\n"));
+                    }
+                    if (child.hasChild("strengths")){
+                        strengthId.setText(child.child("strengths").getValue().toString().replace("\\n", "\n"));
+                    }
+                    if (child.hasChild("weaknesses")){
+                        weaknessId.setText(child.child("weaknesses").getValue().toString().replace("\\n", "\n"));
+                    }
+                    if (child.hasChild("atwork")){
+                        atworkId.setText(child.child("atwork").getValue().toString().replace("\\n", "\n"));
+                    }
+                    if (child.hasChild("topcareers")){
+                        topcareerId.setText(child.child("topcareers").getValue().toString().replace("\\n", "\n"));
+                    }
+
                 }
             }
 
