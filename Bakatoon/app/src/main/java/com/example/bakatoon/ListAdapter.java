@@ -21,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
-public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>  {
+public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     public Context mContext;
     public List<Personalities> mPersonalities;
     DatabaseReference mDatabase;
@@ -50,7 +50,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>  {
             public void onClick(View view) {
                 SharedPreferences.Editor editor = mContext.getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit();
                 editor.putString("personalityId", personalities.getId());
-                editor.apply();
+                editor.commit();
                 Intent intent = new Intent(mContext, MbtiPersonalities.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mContext.startActivity(intent);
@@ -63,8 +63,9 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>  {
         return mPersonalities.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView img;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             img = itemView.findViewById(R.id.img);

@@ -56,13 +56,13 @@ public class InfoMbtiActivity extends AppCompatActivity {
 
     }
 
-    public void showPersonalities(){
+    public void showPersonalities() {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Personalities");
-        reference.addValueEventListener(new ValueEventListener() {
+        reference.orderByChild("mbti").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 personalitiesList.clear();
-                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Personalities personalities = dataSnapshot.getValue(Personalities.class);
                     personalitiesList.add(personalities);
                 }

@@ -52,16 +52,16 @@ public class ForgotPassword extends AppCompatActivity {
         });
     }
 
-    private void resetPassword(){
+    private void resetPassword() {
         String email = et_emailForgotPassword.getText().toString().trim();
 
-        if (email.isEmpty()){
+        if (email.isEmpty()) {
             et_emailForgotPassword.setError("Email is Required");
             et_emailForgotPassword.requestFocus();
             return;
         }
 
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             et_emailForgotPassword.setError("Please provide valid email");
             et_emailForgotPassword.requestFocus();
             return;
@@ -70,14 +70,14 @@ public class ForgotPassword extends AppCompatActivity {
         mAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()){
+                if (task.isSuccessful()) {
                     progressBar.setVisibility(View.GONE);
                     Toast.makeText(ForgotPassword.this, "Check your email or spam to reset your password", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(ForgotPassword.this, LoginActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                     finish();
-                }else{
+                } else {
                     Toast.makeText(ForgotPassword.this, "Try again", Toast.LENGTH_SHORT).show();
                 }
             }

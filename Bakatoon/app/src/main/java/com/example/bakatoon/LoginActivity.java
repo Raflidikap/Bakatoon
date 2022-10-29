@@ -30,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText et_email, et_password;
     FirebaseAuth mAuth;
     DatabaseReference reference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,13 +38,13 @@ public class LoginActivity extends AppCompatActivity {
 
         forgotpass = findViewById(R.id.forgotpass);
         loginBtn = findViewById(R.id.loginBtn);
-        toRegister= findViewById(R.id.tv_createaccount);
+        toRegister = findViewById(R.id.tv_createaccount);
         et_email = findViewById(R.id.et_email);
         et_password = findViewById(R.id.et_password);
         mAuth = FirebaseAuth.getInstance();
         //LOGICAL LOGIN
         //if login sukses ke bawah
-        loginBtn.setOnClickListener(new View.OnClickListener(){
+        loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 loginUser();
@@ -66,21 +67,21 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void loginUser(){
+    private void loginUser() {
         String strEmail = et_email.getText().toString().trim();
         String strPass = et_password.getText().toString().trim();
 
-        if(strEmail.isEmpty()){
+        if (strEmail.isEmpty()) {
             et_email.setError("Email cannot empty");
             et_email.requestFocus();
-        }else if (strPass.isEmpty()){
+        } else if (strPass.isEmpty()) {
             et_password.setError("Password cannot empty");
             et_password.requestFocus();
-        }else{
+        } else {
             mAuth.signInWithEmailAndPassword(strEmail, strPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
-                    if(task.isSuccessful()){
+                    if (task.isSuccessful()) {
                         Toast.makeText(LoginActivity.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
 
                         reference = FirebaseDatabase.getInstance().getReference().child("Users").child(mAuth.getCurrentUser().getUid());
@@ -89,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 GlobalVar.currentUser = snapshot.getValue(User.class);
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(intent);
                                 finish();
                             }
@@ -113,27 +114,28 @@ public class LoginActivity extends AppCompatActivity {
 //
 //                            }
 //                        });
-                    }else{
+                    } else {
                         Toast.makeText(LoginActivity.this, "Login error" + task.getException(), Toast.LENGTH_SHORT).show();
                     }
                 }
             });
         }
     }
+
     @Override
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
-        if(currentUser != null){
+        if (currentUser != null) {
             reference = FirebaseDatabase.getInstance().getReference().child("Users").child(mAuth.getCurrentUser().getUid());
             reference.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     GlobalVar.currentUser = snapshot.getValue(User.class);
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
                 }
@@ -145,7 +147,7 @@ public class LoginActivity extends AppCompatActivity {
             });
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
             finish();
-        }else{
+        } else {
             mAuth.signOut();
         }
     }

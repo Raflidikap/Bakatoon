@@ -20,7 +20,7 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        myFragment =  inflater.inflate(R.layout.fragment_home, container, false);
+        myFragment = inflater.inflate(R.layout.fragment_home, container, false);
 //        addFragment();
         tabLayout = myFragment.findViewById(R.id.tab_layout);
         viewPager = myFragment.findViewById(R.id.view_pager);

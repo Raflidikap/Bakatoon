@@ -54,7 +54,6 @@ public class MbtiPersonalities extends AppCompatActivity {
         desc = findViewById(R.id.desc);
 
 
-
         prefs = getApplicationContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE);
         id = prefs.getString("personalityId", "");
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Personalities");
@@ -62,25 +61,25 @@ public class MbtiPersonalities extends AppCompatActivity {
         mDatabase.orderByChild("id").equalTo(id).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot child:snapshot.getChildren()){
+                for (DataSnapshot child : snapshot.getChildren()) {
                     mbtiId.setText(String.valueOf(child.child("mbti").getValue()));
                     subMbtiId.setText(String.valueOf(child.child("sub_mbti").getValue()));
-                    if (child.hasChild("mbticircleimg_url")){
+                    if (child.hasChild("mbticircleimg_url")) {
                         Glide.with(getApplicationContext()).load(child.child("mbticircleimg_url").getValue().toString()).into(mbtiCircleImageView);
                     }
                     if (child.hasChild("desc")) {
                         desc.setText(child.child("desc").getValue().toString().replace("\\n", "\n"));
                     }
-                    if (child.hasChild("strengths")){
+                    if (child.hasChild("strengths")) {
                         strengthId.setText(child.child("strengths").getValue().toString().replace("\\n", "\n"));
                     }
-                    if (child.hasChild("weaknesses")){
+                    if (child.hasChild("weaknesses")) {
                         weaknessId.setText(child.child("weaknesses").getValue().toString().replace("\\n", "\n"));
                     }
-                    if (child.hasChild("atwork")){
+                    if (child.hasChild("atwork")) {
                         atworkId.setText(child.child("atwork").getValue().toString().replace("\\n", "\n"));
                     }
-                    if (child.hasChild("topcareers")){
+                    if (child.hasChild("topcareers")) {
                         topcareerId.setText(child.child("topcareers").getValue().toString().replace("\\n", "\n"));
                     }
 

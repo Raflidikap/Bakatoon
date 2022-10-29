@@ -29,8 +29,8 @@
         android:layout_height="120dp"
         android:layout_below="@+id/linearlayout"
         android:layout_centerHorizontal="true"
-
         android:layout_marginBottom="30dp"
+        android:foreground="@drawable/ic_baseline_file_upload_24"
         android:src="@mipmap/ic_launcher_round"
         app:round="120dp" />
 

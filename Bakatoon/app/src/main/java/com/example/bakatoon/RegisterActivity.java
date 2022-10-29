@@ -39,7 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
         et_email = findViewById(R.id.et_email);
         et_password = findViewById(R.id.et_password);
         et_confpassword = findViewById(R.id.et_confpassword);
-        mAuth =FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
         toLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,59 +57,59 @@ public class RegisterActivity extends AppCompatActivity {
                 String strPass = et_password.getText().toString().trim();
                 String strConPass = et_confpassword.getText().toString().trim();
 
-                if(strName.isEmpty()){
+                if (strName.isEmpty()) {
                     et_fullname.setError("Name cannot empty");
                     et_fullname.requestFocus();
-                }else if (strEmail.isEmpty()){
+                } else if (strEmail.isEmpty()) {
                     et_email.setError("Email cannot empty");
                     et_email.requestFocus();
-                }else if (strPass.isEmpty()){
+                } else if (strPass.isEmpty()) {
                     et_password.setError("Password cannot empty");
                     et_password.requestFocus();
-                }else if (strConPass.isEmpty()){
+                } else if (strConPass.isEmpty()) {
                     et_confpassword.setError("Confirmation password cannot empty");
                     et_confpassword.requestFocus();
-                }else if(!strPass.equals(strConPass)){
+                } else if (!strPass.equals(strConPass)) {
                     et_confpassword.setError("Password doesn't matches");
                     et_confpassword.requestFocus();
-                }else {
+                } else {
                     createUser(strName, strEmail, strPass);
                 }
             }
         });
     }
 
-    private void createUser(String strName, String strEmail, String strPass){
+    private void createUser(String strName, String strEmail, String strPass) {
 
-            mAuth.createUserWithEmailAndPassword(strEmail, strPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        //butuh progress dialog
-                        Toast.makeText(RegisterActivity.this, "User created successfully", Toast.LENGTH_SHORT).show();
-                        FirebaseUser firebaseUser = mAuth.getCurrentUser();
-                        String userid = firebaseUser.getUid();
+        mAuth.createUserWithEmailAndPassword(strEmail, strPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    //butuh progress dialog
+                    Toast.makeText(RegisterActivity.this, "User created successfully", Toast.LENGTH_SHORT).show();
+                    FirebaseUser firebaseUser = mAuth.getCurrentUser();
+                    String userid = firebaseUser.getUid();
 
-                        reference = FirebaseDatabase.getInstance().getReference().child("Users").child(userid);
-                        String pp ="https://firebasestorage.googleapis.com/v0/b/bakatoon-c70c0.appspot.com/o/defaultProfileImg.png?alt=media&token=966663b0-f6ab-4123-8261-57b46edc41b9";
-                        HashMap<String, Object> hashMap = new HashMap<>();
-                        hashMap.put("id", userid);
-                        hashMap.put("name", strName);
-                        hashMap.put("email", strEmail);
-                        hashMap.put("mbti", "");
-                        hashMap.put("imageprofileUrl", pp);
+                    reference = FirebaseDatabase.getInstance().getReference().child("Users").child(userid);
+                    String pp = "https://firebasestorage.googleapis.com/v0/b/bakatoon-c70c0.appspot.com/o/defaultProfileImg.png?alt=media&token=966663b0-f6ab-4123-8261-57b46edc41b9";
+                    HashMap<String, Object> hashMap = new HashMap<>();
+                    hashMap.put("id", userid);
+                    hashMap.put("name", strName);
+                    hashMap.put("email", strEmail);
+                    hashMap.put("mbti", "");
+                    hashMap.put("imageprofileUrl", pp);
 
-                        reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                                startActivity(intent);
-                            }
-                        });
-                    } else {
-                        Toast.makeText(RegisterActivity.this, "Error " + task.getException(), Toast.LENGTH_LONG).show();
-                    }
+                    reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+                } else {
+                    Toast.makeText(RegisterActivity.this, "Error " + task.getException(), Toast.LENGTH_LONG).show();
                 }
-            });
-        }
+            }
+        });
+    }
 }
