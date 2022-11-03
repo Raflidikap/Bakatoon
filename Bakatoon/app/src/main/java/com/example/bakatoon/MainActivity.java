@@ -4,11 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.constraintlayout.utils.widget.ImageFilterView;
+
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
-import androidx.viewpager2.widget.ViewPager2;
+
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,17 +22,12 @@ import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
-    TabLayout tabLayout;
-    ViewPager viewPager;
     FirebaseAuth mAuth;
     DatabaseReference mDatabase;
 
@@ -45,7 +40,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -57,27 +51,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         TextView profName = headView.findViewById(R.id.profName);
         TextView profEmail = headView.findViewById(R.id.profEmail);
 
-//        mDatabase.orderByChild("id").equalTo(mAuth.getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for (DataSnapshot child : snapshot.getChildren()){
-//                    if (child.hasChild("imageprofileUrl")){
-//                        Glide.with(getApplicationContext()).load(child.child("imageprofileUrl").getValue().toString()).into(imgProfile);
-//                    }
-//                    if (child.hasChild("name")) {
-//                        profName.setText(child.child("name").getValue().toString());
-//                    }
-//                    if (child.hasChild("email")){
-//                        profEmail.setText(child.child("email").getValue().toString());
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
 
         profName.setText(GlobalVar.currentUser.getName());
         profEmail.setText(GlobalVar.currentUser.getEmail());
