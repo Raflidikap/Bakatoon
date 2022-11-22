@@ -20,6 +20,7 @@
     <TextView
         android:id="@+id/idTVQuestionAttempted"
         android:layout_width="match_parent"
+        android:fontFamily="@font/poppins_regular"
         android:layout_height="wrap_content"
         android:layout_below="@+id/backBtn"
         android:layout_marginTop="25dp"
@@ -37,6 +38,7 @@
         android:layout_below="@+id/idTVQuestionAttempted"
         android:gravity="center"
         android:text="Question"
+        android:fontFamily="@font/poppins_regular"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="25sp" />
@@ -54,6 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:backgroundTint="#FF9900"
+            android:fontFamily="@font/poppins_regular"
             android:padding="4dp"
             android:text="Option1"
             android:textAllCaps="false" />
@@ -65,6 +68,7 @@
             android:layout_margin="10dp"
             android:backgroundTint="#FF9900"
             android:padding="4dp"
+            android:fontFamily="@font/poppins_regular"
             android:text="Option2"
             android:textAllCaps="false" />
 

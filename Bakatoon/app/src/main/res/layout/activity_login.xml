@@ -23,6 +23,7 @@
         android:layout_below="@+id/logo"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="20dp"
+        android:fontFamily="@font/poppins_regular"
         android:gravity="center"
         android:text="Login"
         android:textColor="@color/white"
@@ -41,7 +42,9 @@
         android:backgroundTint="@color/white"
         android:drawableLeft="@drawable/ic_baseline_mail_outline_24"
         android:drawablePadding="20dp"
+        android:fontFamily="@font/poppins_regular"
         android:hint="Email"
+        android:inputType="textLongMessage"
         android:padding="10dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
@@ -58,6 +61,7 @@
         android:backgroundTint="@color/white"
         android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
         android:drawablePadding="20dp"
+        android:fontFamily="@font/poppins_regular"
         android:hint="Password"
         android:inputType="textPassword"
         android:padding="10dp"
@@ -74,6 +78,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
+        android:fontFamily="@font/poppins_regular"
         android:text="Forgot password?"
         android:textColor="@color/white" />
 
@@ -85,13 +90,13 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:backgroundTint="#FF9900"
+        android:fontFamily="@font/poppins_regular"
         android:text="Login" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/loginBtn"
-        android:layout_margin="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
@@ -104,6 +109,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
+            android:fontFamily="@font/poppins_regular"
             android:gravity="center"
             android:text="Do not have account?"
             android:textColor="@color/white" />
@@ -113,6 +119,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:fontFamily="@font/poppins_regular"
             android:text="create"
             android:textColor="#FF9900" />
 

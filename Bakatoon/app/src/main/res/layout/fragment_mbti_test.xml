@@ -23,6 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:fontFamily="@font/poppins_regular"
         android:text="MBTI Test Page"
         android:textColor="@color/white"
         android:textSize="15sp"
@@ -38,6 +39,7 @@
         android:layout_margin="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
+        android:fontFamily="@font/poppins_regular"
         android:padding="10dp"
         android:text="In this test you have to answer the questions asked honestly to find out what type of personality you have."
         android:textColor="@color/white"
@@ -51,6 +53,7 @@
         android:layout_centerInParent="true"
         android:layout_margin="10dp"
         android:background="#FF9900"
+        android:fontFamily="@font/poppins_regular"
         android:text="Lakukan Test" />
 
 </RelativeLayout>

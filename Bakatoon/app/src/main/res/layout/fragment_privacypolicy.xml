@@ -15,6 +15,7 @@
         android:layout_marginBottom="5dp"
         android:drawableTop="@drawable/ic_bakatoon"
         android:drawablePadding="50dp"
+        android:fontFamily="@font/poppins_regular"
         android:padding="10dp"
         android:text="Privacy and Policy"
         android:textColor="@color/white"
@@ -30,6 +31,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
+        android:fontFamily="@font/poppins_regular"
         android:padding="10dp"
         android:text="Bakatoon Team built the Bakatoon app as a Free app. This SERVICE is provided by Bakatoon Team at no cost and is intended for use as is.
 
@@ -44,6 +46,7 @@ This page is used to inform visitors regarding our policies with the collection,
         android:layout_marginTop="48dp"
         android:drawableBottom="@drawable/group_12"
         android:drawablePadding="30dp"
+        android:fontFamily="@font/poppins_regular"
         android:padding="10dp"
         android:text="Warm greetings from mimin.."
         android:textColor="@color/white" />

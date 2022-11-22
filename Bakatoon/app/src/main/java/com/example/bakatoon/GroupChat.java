@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.example.bakatoon.models.Message;
 import com.example.bakatoon.models.User;
@@ -55,10 +56,23 @@ public class GroupChat extends AppCompatActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_chat);
+
+
         prefs = getApplicationContext().getSharedPreferences("MBTI", Context.MODE_PRIVATE);
         group = prefs.getString("mbtiGroup", "");
-        mbtiGroupId = findViewById(R.id.mbtiGroupId);
-        mbtiGroupId.setText(group);
+
+
+        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(group);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+
 
         init();
     }
@@ -70,33 +84,12 @@ public class GroupChat extends AppCompatActivity implements View.OnClickListener
         rvMessage = (RecyclerView) findViewById(R.id.messageRv);
         messageEditText = (EditText) findViewById(R.id.messageEditText);
         sendButton = (ImageButton) findViewById(R.id.sendBtn);
-        backButton = (Button) findViewById(R.id.backButton);
 
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
+
         sendButton.setOnClickListener(this);
         messageList = new ArrayList<>();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.menuLogout) {
-            mAuth.signOut();
-            finish();
-            startActivity(new Intent(GroupChat.this, LoginActivity.class));
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
     @Override
     public void onClick(View view) {

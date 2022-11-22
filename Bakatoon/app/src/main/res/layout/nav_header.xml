@@ -12,20 +12,23 @@
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:layout_marginBottom="10dp"
-        android:src="@mipmap/ic_launcher_round"
-        android:paddingTop="10dp" />
+        android:paddingTop="10dp"
+        android:src="@mipmap/ic_launcher_round" />
 
     <TextView
         android:id="@+id/profName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
         android:text="Sisca Kohl"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/profEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
         android:text="sisckhl@outlook.com" />
 
 

@@ -33,8 +33,9 @@
         <entry key="..\:/Users/Rafli Dika Pramudya/Documents/GitHub/Bakatoon/Bakatoon/app/src/main/res/drawable/ic_group_12.xml" value="0.2145" />
         <entry key="..\:/Users/Rafli Dika Pramudya/Documents/GitHub/Bakatoon/Bakatoon/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/Users/Rafli Dika Pramudya/Documents/GitHub/Bakatoon/Bakatoon/app/src/main/res/drawable/ic_splash_screen.xml" value="0.181" />
+        <entry key="..\:/Users/Rafli Dika Pramudya/Documents/GitHub/Bakatoon/Bakatoon/app/src/main/res/font/poppins.xml" value="0.2791666666666667" />
         <entry key="..\:/Users/Rafli Dika Pramudya/Documents/GitHub/Bakatoon/Bakatoon/app/src/main/res/layout/activity_forgot_password.xml" value="0.25" />
-        <entry key="..\:/Users/Rafli Dika Pramudya/Documents/GitHub/Bakatoon/Bakatoon/app/src/main/res/layout/activity_group_chat.xml" value="0.19701086956521738" />
+        <entry key="..\:/Users/Rafli Dika Pramudya/Documents/GitHub/Bakatoon/Bakatoon/app/src/main/res/layout/activity_group_chat.xml" value="0.2" />
         <entry key="..\:/Users/Rafli Dika Pramudya/Documents/GitHub/Bakatoon/Bakatoon/app/src/main/res/layout/activity_info.xml" value="0.25" />
         <entry key="..\:/Users/Rafli Dika Pramudya/Documents/GitHub/Bakatoon/Bakatoon/app/src/main/res/layout/activity_info_mbti.xml" value="0.25" />
         <entry key="..\:/Users/Rafli Dika Pramudya/Documents/GitHub/Bakatoon/Bakatoon/app/src/main/res/layout/activity_login.xml" value="0.25" />
@@ -54,7 +55,7 @@
         <entry key="..\:/Users/Rafli Dika Pramudya/Documents/GitHub/Bakatoon/Bakatoon/app/src/main/res/layout/item_message.xml" value="0.25" />
         <entry key="..\:/Users/Rafli Dika Pramudya/Documents/GitHub/Bakatoon/Bakatoon/app/src/main/res/layout/list_mbti.xml" value="0.19701086956521738" />
         <entry key="..\:/Users/Rafli Dika Pramudya/Documents/GitHub/Bakatoon/Bakatoon/app/src/main/res/layout/list_row.xml" value="0.24895833333333334" />
-        <entry key="..\:/Users/Rafli Dika Pramudya/Documents/GitHub/Bakatoon/Bakatoon/app/src/main/res/layout/nav_header.xml" value="0.1" />
+        <entry key="..\:/Users/Rafli Dika Pramudya/Documents/GitHub/Bakatoon/Bakatoon/app/src/main/res/layout/nav_header.xml" value="0.4" />
         <entry key="..\:/Users/Rafli Dika Pramudya/Documents/GitHub/Bakatoon/Bakatoon/app/src/main/res/layout/testresult_bottom_sheet.xml" value="0.20153985507246377" />
         <entry key="..\:/Users/Rafli Dika Pramudya/Documents/GitHub/Bakatoon/Bakatoon/app/src/main/res/menu/menu.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/Rafli Dika Pramudya/Documents/GitHub/Bakatoon/Bakatoon/app/src/main/res/menu/nav_drawer_menu.xml" value="0.2234375" />

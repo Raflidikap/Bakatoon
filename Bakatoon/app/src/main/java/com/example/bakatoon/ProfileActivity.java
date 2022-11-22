@@ -73,6 +73,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         profileEmail.setText(GlobalVar.currentUser.getEmail());
         profileName.setText(GlobalVar.currentUser.getName());
+        logoutBtn.setText("Log Out \nYou are logged in as " + GlobalVar.currentUser.getName());
         Glide.with(getApplicationContext()).load(GlobalVar.currentUser.getImageprofileUrl()).into(profilePic);
 
         mbtiProfile.setText(GlobalVar.currentUser.getMbti());

@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:fontFamily="@font/poppins_regular"
         android:gravity="center"
         android:padding="3dp"
         android:text="Your MBTI is"
@@ -25,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:backgroundTint="#FF9900"
+        android:fontFamily="@font/poppins_regular"
         android:text="Finish"
         android:textAllCaps="false" />
 
